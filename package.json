@@ -1,0 +1,31 @@
+{
+  "name": "react-ssr-ts-simple-monorepo-rsts",
+  "license": "MIT",
+  "repository": "https://github.com/alfed7/react-ssr-ts-simple-monorepo.git",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
+  "scripts": {
+    "tsc": "yarn tsc:client & yarn tsc:server",
+    "tsc:client": "yarn workspace @rsts/web tsc",
+    "tsc:server": "yarn workspace @rsts/server tsc",
+    "start": "yarn start:client",
+    "start:client": "yarn workspace @rsts/web start",
+    "start:server": "yarn workspace @rsts/server start",
+    "build:client": "yarn workspace @rsts/web build"
+  },
+  "devDependencies": {
+    "lerna": "^4.0.0",
+    "@babel/core": "^7.16.0",
+    "@babel/plugin-transform-runtime": "^7.16.4",
+    "@babel/preset-env": "^7.16.4",
+    "@babel/preset-react": "^7.16.0",
+    "@babel/runtime": "^7.16.3",
+    "@babel/preset-typescript": "^7.16.0",
+    "@emotion/babel-plugin": "^11.3.0",
+    "babel-loader": "^8.2.3"
+  }
+}

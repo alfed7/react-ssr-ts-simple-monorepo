@@ -1,0 +1,10 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "./build/types",
+    "types": ["node"]
+  },
+  "exclude": ["node_modules", "build"],
+  "references": [{ "path": "../web" }]
+}
