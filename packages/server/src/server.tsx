@@ -1,3 +1,4 @@
+import React from "react";
 import path from "path";
 import express from "express";
 //import compression from "compression";
@@ -13,8 +14,8 @@ export function createHttpServer(): express.Express {
   const app = express();
 
   //app.use(compression());
-  app.use(express.static(appBundleDirectory));
   app.get("/", ssrHandler);
+  app.use(express.static(appBundleDirectory));
 
   return app;
 }
@@ -33,9 +34,7 @@ function ssrHandler(_req: express.Request, res: express.Response) {
     <title>Monorepo Example</title>
 </head>
 <body>
-    <div id="root" data-ssr>
-      ${ssrText}
-    </div>
+    <div id="root" data-ssr>${ssrText}</div>
     <script type="text/javascript" src="main.js"></script>
 </body>
 </html>`

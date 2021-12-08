@@ -2,13 +2,17 @@
   "name": "@rsts/server",
   "version": "0.1.0",
   "main": "build/server-bundle.js",
+  "module": "build/esm/server-bundle.esm.js",
   "author": "Alexander Fedorenko",
   "license": "MIT",
   "repository": "https://github.com/alfed7/react-ssr-ts-simple-monorepo.git",
   "private": true,
   "scripts": {
-    "build": "webpack --mode=production",
-    "start": "webpack --mode=development & node build/server-bundle.js",
+    "build": "rollup -c",
+    "watch": "rollup -c -w",
+    "dev": "npm-run-all --parallel watch mon",
+    "mon": "nodemon build/server-bundle.js",
+    "start2": "npm-run-all --parallel watch & nodemon build/server-bundle.js",
     "prestart": "yarn workspace @rsts/web build",
     "tsc": "tsc -b"
   },
@@ -25,7 +29,6 @@
     "@types/express": "^4.17.13",
     "@types/node": "^16.11.12",
     "typescript": "^4.5.2",
-    "webpack": "^5.64.4",
-    "webpack-cli": "^4.9.1"
+    "nodemon": "^2.0.15"
   }
 }

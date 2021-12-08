@@ -2,14 +2,17 @@
   "name": "@rsts/web",
   "version": "0.1.0",
   "main": "build/index.js",
+  "module": "build/esm/index.esm.js",
   "types": "build/types/index.d.ts",
   "author": "Alexander Fedorenko",
   "license": "MIT",
   "repository": "https://github.com/alfed7/react-ssr-ts-simple-monorepo.git",
   "private": true,
   "scripts": {
-    "build": "webpack --mode=production",
-    "start": "webpack serve --open --mode=development",
+    "build": "yarn tsc & rollup -c",
+    "watch": "yarn tsc & rollup -c -w",
+    "dev": "npm-run-all --parallel start watch",
+    "start": "serve public",
     "tsc": "tsc -b"
   },
   "peerDependencies": {
@@ -19,20 +22,14 @@
     "@emotion/react": ">=11",
     "@emotion/styled": ">=11"
   },
-  "dependencies": {
+  "devDependencies": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "@emotion/css": "^11.5.0",
     "@emotion/react": "^11.6.0",
-    "@emotion/styled": "^11.6.0"
-  },
-  "devDependencies": {
+    "@emotion/styled": "^11.6.0",
     "@types/react": "^17.0.37",
     "@types/react-dom": "^17.0.11",
-    "typescript": "^4.5.2",
-    "webpack": "^5.64.4",
-    "webpack-cli": "^4.9.1",
-    "webpack-dev-server": "^4.6.0",
-    "html-webpack-plugin": "^5.5.0"
+    "typescript": "^4.5.2"
   }
 }
