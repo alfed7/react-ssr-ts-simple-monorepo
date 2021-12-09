@@ -24,13 +24,13 @@ export default [
     //   ...Object.keys(pkg.peerDependencies || {}),
     // ],
     plugins: [
-      resolve(), //{
-      //   extensions,
-      // }),
-      commonjs(),
-      typescript({
-        exclude: ["**/*.test.ts?(x)"],
+      resolve({
+        extensions,
       }),
+      commonjs(),
+      // typescript({
+      //   exclude: ["**/*.test.ts?(x)"],
+      // }),
       babel({
         exclude: /^(.+\/)?node_modules\/.+$/,
         extensions,

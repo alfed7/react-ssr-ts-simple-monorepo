@@ -22,7 +22,7 @@ export function createHttpServer(): express.Express {
 
 function ssrHandler(_req: express.Request, res: express.Response) {
   const ssrText = ReactDOMServer.renderToString(<App />);
-  console.log("ssrText", ssrText);
+  //console.log("ssrText", ssrText);
   res.end(
     `<!DOCTYPE html>
 <html lang="en">
