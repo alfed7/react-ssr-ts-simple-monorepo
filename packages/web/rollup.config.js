@@ -5,7 +5,13 @@ import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
 import replace from "rollup-plugin-replace";
+import copy from "rollup-plugin-copy";
+import { terser } from "rollup-plugin-terser";
+
+const production = !process.env.ROLLUP_WATCH;
 const extensions = [".js", ".jsx", ".ts", ".tsx"];
+
+console.log("production", production);
 
 export default [
   {
@@ -39,6 +45,10 @@ export default [
       replace({
         "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV),
       }),
+      copy({
+        targets: [{ src: "src/index.html", dest: "build" }],
+      }),
+      production && terser(),
     ],
   },
   {
@@ -72,6 +82,7 @@ export default [
         extensions,
         babelHelpers: "runtime",
       }),
+      production && terser(),
     ],
   },
 ];

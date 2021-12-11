@@ -12,8 +12,8 @@
     "watch": "rollup -c -w",
     "dev": "npm-run-all --parallel watch mon",
     "mon": "nodemon build/server-bundle.js",
-    "start2": "npm-run-all --parallel watch & nodemon build/server-bundle.js",
-    "prestart2": "yarn workspace @rsts/web build",
+    "start": "nodemon build/server-bundle.js",
+    "prestart": "yarn workspace @rsts/web build & yarn build",
     "tsc": "tsc -b"
   },
   "dependencies": {

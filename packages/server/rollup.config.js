@@ -2,6 +2,9 @@ const pkg = require("./package.json");
 
 import { babel } from "@rollup/plugin-babel";
 import typescript from "@rollup/plugin-typescript";
+import { terser } from "rollup-plugin-terser";
+
+const production = !process.env.ROLLUP_WATCH;
 
 module.exports = {
   input: "./src/index.ts",
@@ -30,5 +33,6 @@ module.exports = {
       extensions: [".ts", ".tsx"],
       babelHelpers: "runtime",
     }),
+    production && terser(),
   ],
 };

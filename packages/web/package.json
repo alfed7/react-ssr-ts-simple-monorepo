@@ -12,7 +12,7 @@
     "build": "yarn tsc & rollup -c",
     "watch": "yarn tsc & rollup -c -w",
     "dev": "npm-run-all --parallel start watch",
-    "start": "serve public",
+    "start": "yarn build & serve build",
     "tsc": "tsc -b"
   },
   "peerDependencies": {

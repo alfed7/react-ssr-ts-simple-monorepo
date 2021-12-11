@@ -17,7 +17,7 @@ export const App: FC = () => {
           }
         `}
       >
-        <h1>React and TypeScript App with Emotion!</h1>
+        <h1>React and TypeScript App with Emotion test!</h1>
       </div>
     </ThemeProvider>
   );
